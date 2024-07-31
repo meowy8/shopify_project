@@ -1,0 +1,23 @@
+.productCard {
+  border: 1px solid white;
+  border-radius: 15px;
+  width: 200px;
+  height: 275px;
+  overflow: hidden;
+
+  .productImage {
+    height: 70%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .productDescription {
+    padding: 5px;
+    border-top: 1px solid antiquewhite;
+    background-color: rgb(1, 32, 1);
+    height: 30%;
+  }
+}
