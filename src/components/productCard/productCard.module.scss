@@ -1,12 +1,38 @@
 .productCard {
-  border: 1px solid white;
-  border-radius: 15px;
+  position: relative;
+  // border: 1px solid white;
+  border-radius: 8px;
   width: 200px;
   height: 275px;
   overflow: hidden;
 
+  .overlay {
+    position: absolute;
+    background-color: #ffffff64;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.8s ease-out;
+
+    p {
+      padding: 10px;
+      color: #000;
+      translate: 0 40%;
+      transition: all 0.8s ease-out;
+      font-size: 30px;
+    }
+  }
+
+  &:hover {
+    .overlay {
+      opacity: 1;
+
+      p {
+        translate: none;
+      }
+    }
+  }
+
   .productImage {
-    height: 70%;
     overflow: hidden;
 
     img {
@@ -15,9 +41,13 @@
   }
 
   .productDescription {
-    padding: 5px;
-    border-top: 1px solid antiquewhite;
-    background-color: rgb(1, 32, 1);
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(#00000000, #00000066);
     height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 }

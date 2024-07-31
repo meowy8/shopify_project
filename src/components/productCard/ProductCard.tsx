@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { setBasket } from "../../redux/basketSlice";
 import { RootState } from "@/app/store";
+import AddToCartBtn from "../buttons/addtocart/AddToCartBtn";
 
 const ProductCard = ({
   product,
@@ -28,6 +29,9 @@ const ProductCard = ({
   return (
     <div className={styles.productCard}>
       <Link href={"/product/" + id}>
+        <div className={styles.overlay}>
+          <p>{product.title}</p>
+        </div>
         <div className={styles.productImage}>
           <Image
             width="200"
@@ -37,8 +41,7 @@ const ProductCard = ({
           />
         </div>
         <div className={styles.productDescription}>
-          <p>{product.title}</p>
-          <button onClick={(e) => handleClick(e)}>Add to basket</button>
+          <AddToCartBtn handleClick={handleClick} />
         </div>
       </Link>
     </div>
