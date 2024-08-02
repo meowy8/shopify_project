@@ -40,8 +40,7 @@ async function shopifyFetch({
   }
 }
 
-export async function getProduct(id: string) {
-  console.log(id);
+async function getProduct(id: string) {
   const query = `
     {
       product(id: "gid://shopify/Product/${id}") {

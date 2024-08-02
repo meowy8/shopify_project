@@ -45,6 +45,8 @@ export default function Home() {
   }, [fetchItems]);
 
   useEffect(() => {
+    const currentRef = targetRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -56,13 +58,13 @@ export default function Home() {
       { threshold: 0.2 } // Adjust the threshold as needed
     );
 
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (targetRef.current) {
-        observer.unobserve(targetRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

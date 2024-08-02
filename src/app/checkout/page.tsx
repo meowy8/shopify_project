@@ -17,7 +17,9 @@ const Checkout = () => {
 
   const router = useRouter();
 
-  if (basket.length === 0) return router.push("/");
+  useEffect(() => {
+    if (basket.length === 0) return router.push("/");
+  }, [basket, router]);
 
   useEffect(() => {
     const items = basket.filter((item, index) => index < 3);
@@ -26,7 +28,7 @@ const Checkout = () => {
 
     setFirstThreeItems(items);
     setItemsRemaining(remaining);
-  }, []);
+  }, [basket]);
 
   const calculateBasketTotal = useCallback(() => {
     const totalLong = basket.reduce(

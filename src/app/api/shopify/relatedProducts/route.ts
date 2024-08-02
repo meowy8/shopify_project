@@ -40,7 +40,7 @@ async function shopifyFetch({
   }
 }
 
-export async function getRelatedProducts(category: string) {
+async function getRelatedProducts(category: string) {
   const query = `
     {
       products(first: 3, query: "${category}") {

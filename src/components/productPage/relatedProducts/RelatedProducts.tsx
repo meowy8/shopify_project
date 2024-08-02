@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./relatedProducts.module.scss";
 import { ShopifyProduct } from "@/types/shopifyTypes";
 import Image from "next/image";
@@ -19,7 +19,7 @@ const RelatedProducts = ({ product }: { product: ShopifyProduct }) => {
     );
   };
 
-  const fetchRelatedProducts = async () => {
+  const fetchRelatedProducts = useCallback(async () => {
     try {
       const response = await fetch(
         `/api/shopify/relatedProducts?category=${product.productType}`
@@ -37,11 +37,11 @@ const RelatedProducts = ({ product }: { product: ShopifyProduct }) => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [product]);
 
   useEffect(() => {
     fetchRelatedProducts();
-  }, []);
+  }, [fetchRelatedProducts]);
 
   useEffect(() => console.log(relatedProducts), [relatedProducts]);
 

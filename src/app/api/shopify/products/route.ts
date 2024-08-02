@@ -40,7 +40,7 @@ async function shopifyFetch({
   }
 }
 
-export async function getAllProducts() {
+async function getAllProducts() {
   const query = `
     {
       products(sortKey: TITLE, first: 10) {
