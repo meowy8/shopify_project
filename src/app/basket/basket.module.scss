@@ -1,0 +1,76 @@
+.mainPage {
+  display: flex;
+  justify-content: center;
+  padding: 70px 0;
+
+  .basketDisplay {
+    display: flex;
+    gap: 50px;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+
+    .basketList {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .basketDetails {
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.083);
+      height: max-content;
+      width: 250px;
+      padding: 20px;
+      border: 1px solid antiquewhite;
+      border-radius: 10px;
+
+      @media screen and (max-width: 900px) {
+        width: auto;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      .totalContainer {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+
+        .total {
+          font-size: 30px;
+        }
+      }
+    }
+
+    .checkoutBtnContainer {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      padding-top: 30px;
+
+      .checkoutBtn {
+        padding: 10px;
+        width: 100%;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        border: 2px solid black;
+
+        &:hover {
+          background-color: rgb(222, 209, 190);
+        }
+        &:active {
+          background-color: rgb(203, 191, 173);
+        }
+
+        &:disabled {
+          background-color: gray;
+          cursor: default;
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,48 @@
 .navbar {
   position: fixed;
-  display: flex;
-  top: 0;
   width: 100%;
-  // background-color: white;
-  padding: 10px;
+  top: 0;
+  background-color: rgb(1, 26, 1);
   border-bottom: 1px solid rgb(43, 71, 43);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
 
-  h1 {
-    font-size: 30px;
-    margin: 0;
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 2000px;
+
+    @media screen and (max-width: 2000px) {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 0;
+      font-family: "Chakra Petch Semibold";
+    }
+
+    .basketContainer {
+      position: relative;
+      margin: 0;
+      margin-right: 5px;
+      padding: 0;
+
+      svg {
+        font-size: 40px;
+      }
+
+      .basketAmount {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: red;
+        border-radius: 100%;
+        padding: 2px 7px;
+      }
+    }
   }
 }

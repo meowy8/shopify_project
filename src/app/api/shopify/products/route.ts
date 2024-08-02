@@ -50,11 +50,28 @@ export async function getAllProducts() {
             title
             description
             handle
+            productType
+            priceRangeV2 {
+              minVariantPrice {
+                amount
+              }
+            }
             featuredImage {
               altText
               height
               width
               url
+            }
+            images(first: 4) {
+              edges {
+                node {
+                  id
+                  url
+                  altText
+                  height
+                  width
+                }
+              }
             }
           }
         }

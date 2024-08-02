@@ -1,11 +1,22 @@
 "use client";
 import { RootState } from "@/app/store";
+import ImageDisplay from "@/components/productPage/imageDisplay/ImageDisplay";
 import { ListOfProducts, ShopifyProduct } from "@/types/shopifyTypes";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import styles from "./productPage.module.scss";
+import AddToCartBtn from "@/components/buttons/addtocart/AddToCartBtn";
+import ProductPageLoader from "@/components/loading/productPageLoader/ProductPageLoader";
+import { Span } from "next/dist/trace";
+import ProductCard from "@/components/productCard/ProductCard";
+import RelatedProducts from "@/components/productPage/relatedProducts/RelatedProducts";
+import ProductDescription from "@/components/productPage/productDescription/ProductDescription";
+import ProductDetail from "@/components/productPage/productDetail/ProductDetail";
 
 const ProductPage = () => {
+  const dispatch = useDispatch();
   const { id } = useParams<{ id: string }>();
 
   const productFromStore = useSelector((state: RootState) => {
@@ -21,7 +32,6 @@ const ProductPage = () => {
     try {
       const response = await fetch("/api/shopify/product?id=" + id);
       const result = await response.json();
-      console.log("result", result);
 
       setProduct(result.data.product);
     } catch (error) {
@@ -31,11 +41,22 @@ const ProductPage = () => {
 
   if (!product) {
     fetchProduct();
+
+    return <ProductPageLoader />;
   }
 
   return (
-    <div>
-      <p>{product?.title}</p>
+    <div className={styles.mainPage}>
+      <section className={styles.productDisplay}>
+        <div>
+          <ImageDisplay product={product} />
+          <ProductDescription product={product} />
+        </div>
+        <div className={styles.rightSide}>
+          <ProductDetail product={product} dispatch={dispatch} />
+          <RelatedProducts product={product} />
+        </div>
+      </section>
     </div>
   );
 };

@@ -1,11 +1,14 @@
 .addToCartBtn {
   background-color: rgb(244, 244, 244);
-  border-radius: 10px;
-  padding: 8px;
-  margin: 8px;
+  border-radius: 8px;
+  padding: 10px;
   border: none;
   width: max-content;
   height: max-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
 
   &:hover {
     background-color: rgb(228, 228, 228);
@@ -14,5 +17,31 @@
 
   &:active {
     background-color: rgb(205, 205, 205);
+  }
+
+  .tooltip {
+    position: absolute;
+    transition: all 0.2s ease;
+    background-color: rgb(14, 158, 110);
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+.removeFromBasketBtn {
+  color: antiquewhite;
+  background-color: rgb(86, 30, 30);
+  height: max-content;
+  width: max-content;
+  padding: 10px;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: rgb(93, 29, 29);
+  }
+  &:active {
+    background-color: rgb(78, 21, 21);
   }
 }

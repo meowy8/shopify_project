@@ -15,16 +15,7 @@ const ProductCard = ({
   product: ShopifyProduct;
   id: string;
 }) => {
-  const basket = useSelector((state: RootState) => state.basket.value);
   const dispatch = useDispatch();
-
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.stopPropagation();
-    e.preventDefault();
-
-    console.log(dispatch(setBasket(product)));
-    dispatch(setBasket(product));
-  };
 
   return (
     <div className={styles.productCard}>
@@ -41,7 +32,7 @@ const ProductCard = ({
           />
         </div>
         <div className={styles.productDescription}>
-          <AddToCartBtn handleClick={handleClick} />
+          <AddToCartBtn dispatch={dispatch} product={product} />
         </div>
       </Link>
     </div>

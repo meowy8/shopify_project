@@ -23,8 +23,16 @@ const basketSlice = createSlice({
         state.value.push(action.payload);
       }
     },
+    removeItem: (
+      state: { value: ListOfProducts },
+      action: { payload: string }
+    ) => {
+      state.value = state.value.filter(
+        (product: ShopifyProduct) => product.id !== action.payload
+      );
+    },
   },
 });
 
-export const { setBasket } = basketSlice.actions;
+export const { setBasket, removeItem } = basketSlice.actions;
 export default basketSlice.reducer;

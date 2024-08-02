@@ -1,0 +1,39 @@
+.productDetail {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: max-content;
+  border: 2px solid antiquewhite;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.083);
+
+  @media screen and (max-width: 1100px) {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 24px;
+    font-family: "Chakra Petch Medium";
+  }
+
+  .reviews {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .price {
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "Chakra Petch Semibold";
+  }
+
+  .addToCartBtnContainer {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      margin-top: 30px;
+    }
+  }
+}
